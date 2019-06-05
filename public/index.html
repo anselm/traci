@@ -16,6 +16,7 @@
 </div>
 <div id="description">
 <h2>Traci</h2>
+You will need the <a href="https://itunes.apple.com/us/app/webxr-viewer/id1295998056?mt=8">iOS WebXR Viewer</a> to view this page properly. If you view this page with that app on an iPhone 7+ you should see a this image, a QRCode and a "GO!" button. You can hide the image and the qrcode by tapping on them. And if you hit the GO! button it should activate your camera view on your phone. If you then point your phone at another copy of the image (such as on another phone looking at this page or on a laptop looking at this page or at a real image on paper) you should see a video player come up. Right now you have to hit play to play the video. The QR Code is helpful if you don't feel like typing in the whole URL to your phone. The way that works is separate, but if you open your ordinary camera app, and you have the webxr-ios viewer installed, and you point your ordinary camera app at the qrcode - it will show a popup that tells you to open the webxr-viewer app.
 <img id="collage" src="collage.png" width=512 style="width:512px"></img>
 <img src="qrcode.png"></img>
 </div>
@@ -24,7 +25,7 @@
 <div id="reset"></div>
 
 <div id="video" style="display:none">
-<video width="320" height="240" controls>
+<video id="videointernal" width="640" height="480" controls>
   <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -144,6 +145,9 @@ const workingVec3 = vec3.create()
 
 let video = document.getElementById("video")
 video.style.display = "block"
+
+let vid = document.getElementById("videointernal"); 
+if(vid) vid.play(); 
 
 //                    engine.addAnchoredNode(imageAnchor, ducky)
                 }).catch(error => {
